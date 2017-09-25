@@ -1,11 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdToolbarModule, MdFormFieldModule, MdInputModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieListItemComponent } from './movie-list-item/movie-list-item.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
+
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
     MovieCardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MdToolbarModule,
+    MdFormFieldModule,
+    MdInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
