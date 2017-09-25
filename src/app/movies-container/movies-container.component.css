@@ -1,0 +1,16 @@
+md-list {
+  width: 30vw;
+  float: left;
+}
+
+md-list-item {
+  cursor: pointer;
+}
+
+app-movie-card {
+  width: 70vw;
+}
+
+.selected {
+  font-weight: bold;
+}
