@@ -8,8 +8,8 @@ import { MovieService } from '../movie.service';
   providers: [MovieService]
 })
 export class MoviesContainerComponent implements OnInit {
-  movies: Array<Object>;
-  selectedMovie: Object;
+  movies: Array<any>;
+  selectedMovie: any;
 
   constructor(private movieService: MovieService) { }
 

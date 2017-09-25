@@ -21,4 +21,12 @@ export class MovieService {
       .then(promise => promise.json());
   }
 
+  getImages(id: number): Promise<any> {
+    return fetch(
+      `${this.baseUrl}/movie/${id}/images?api_key=${config.apiKey}`,
+      {method: 'GET'}
+    )
+      .then(promise => promise.json());
+  }
+
 }
