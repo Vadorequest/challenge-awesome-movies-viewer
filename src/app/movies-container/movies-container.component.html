@@ -1,11 +1,15 @@
-<md-list dense>
-  <md-list-item
-    *ngFor="let movie of movies"
-    [class.selected]="movie === selectedMovie"
-    (click)="onSelect(movie)"
+<div *ngIf="movies">
+  <md-list
+    dense
   >
-    {{movie.label}}
-  </md-list-item>
-</md-list>
+    <md-list-item
+      *ngFor="let movie of movies"
+      [class.selected]="movie === selectedMovie"
+      (click)="onSelect(movie)"
+    >
+      {{movie.label}}
+    </md-list-item>
+  </md-list>
 
-<app-movie-card [movie]="selectedMovie"></app-movie-card>
+  <app-movie-card [movie]="selectedMovie"></app-movie-card>
+</div>
