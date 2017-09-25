@@ -7,6 +7,7 @@ import { MdToolbar } from '@angular/material';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  title: String = 'Awesome Movies Viewer (alpha)';
 
   constructor() { }
 
