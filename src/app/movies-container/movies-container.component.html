@@ -7,9 +7,10 @@
       [class.selected]="movie === selectedMovie"
       (click)="onSelect(movie)"
     >
-      {{movie.label}}
+      {{movie.title}}
     </md-list-item>
   </md-list>
 
   <app-movie-card [movie]="selectedMovie"></app-movie-card>
 </div>
+

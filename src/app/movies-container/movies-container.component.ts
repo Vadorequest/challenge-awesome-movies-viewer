@@ -18,12 +18,12 @@ export class MoviesContainerComponent implements OnInit {
     this.getMovies().then(movies => this.selectedMovie = this.movies[0]);
   }
 
-  getMovies(): Promise<Array<Object>> {
-    return this.movieService.get().then(movies => this.movies = movies);
+  getMovies() {
+    return this.movieService.getMostPopular()
+      .then(data => this.movies = data.results);
   }
 
   onSelect(movie) {
     this.selectedMovie = movie;
   }
-
 }
