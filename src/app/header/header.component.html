@@ -9,9 +9,20 @@
   <span>
     <form class="">
       <i class="material-icons">search</i>
-      <md-form-field class="">
-        <input mdInput placeholder="Search" value="">
+      <md-form-field>
+        <input
+          type="text"
+          mdInput
+          placeholder="Search"
+          [formControl]="textFilterControl"
+          [mdAutocomplete]="auto"
+        >
       </md-form-field>
+      <md-autocomplete #auto="mdAutocomplete">
+         <md-option *ngFor="let movie of filteredMovies | async" [value]="movie.title">
+            {{ movie.title }}
+         </md-option>
+      </md-autocomplete>
     </form>
   </span>
 </md-toolbar>
