@@ -16,6 +16,7 @@
           placeholder="Search"
           [formControl]="textFilterControl"
           [mdAutocomplete]="auto"
+          (keyup.enter)="onSelect($event)"
         >
       </md-form-field>
       <md-autocomplete #auto="mdAutocomplete">

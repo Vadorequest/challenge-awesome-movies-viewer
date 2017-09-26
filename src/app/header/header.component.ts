@@ -36,4 +36,9 @@ export class HeaderComponent implements OnInit {
       movie.title.toLowerCase().indexOf(searchedMovie.toLowerCase()) === 0);
   }
 
+  onSelect($event) {
+    let selectedMovie: any = this.filter($event.target.value);
+
+  }
+
 }
