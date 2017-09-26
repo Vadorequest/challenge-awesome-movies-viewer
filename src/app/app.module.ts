@@ -6,7 +6,7 @@ import {
   MdFormFieldModule, MdInputModule,
   MdListModule,
   MdCardModule,
-  MatAutocompleteModule,
+  MdAutocompleteModule,
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -38,7 +38,7 @@ import { StarsComponent } from './stars/stars.component';
     MdInputModule,
     MdListModule,
     MdCardModule,
-    MatAutocompleteModule,
+    MdAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
