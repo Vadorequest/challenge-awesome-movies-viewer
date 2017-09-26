@@ -1,0 +1,16 @@
+.mat-card {
+  display: inline !important;
+  padding: 0;
+}
+
+md-card-title {
+  font-weight: bold;
+}
+
+md-card-header {
+  padding-top: 20px;
+}
+
+md-card-content {
+  padding-top: 10px;
+}

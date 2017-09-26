@@ -1,12 +1,12 @@
 <div *ngIf="movies">
-  <md-list
-    dense
-  >
+  <md-list>
+    <h3 md-subheader>Most popular movies</h3>
     <md-list-item
       *ngFor="let movie of movies"
       [class.selected]="movie === selectedMovie"
       (click)="onSelect(movie)"
     >
+      <img src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}" />
       {{movie.title}}
     </md-list-item>
   </md-list>

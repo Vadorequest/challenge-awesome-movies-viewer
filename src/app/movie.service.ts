@@ -13,12 +13,17 @@ export class MovieService {
   constructor() { }
 
   getMostPopular(): Promise<any> {
-    // TODO Error handling - Fetch vs Angular HTTP?
+    // TODO Fetch vs Angular HTTP?
     return fetch(
       `${this.discoverUrl}&api_key=${config.apiKey}`,
       {method: 'GET'}
     )
-      .then(promise => promise.json());
+      .then(promise => promise.json())
+      .then(res => {
+        console.log(res);
+        return res;
+      })
+      .catch(err => console.error(err));
   }
 
   getImages(id: number): Promise<any> {
@@ -26,7 +31,12 @@ export class MovieService {
       `${this.baseUrl}/movie/${id}/images?api_key=${config.apiKey}`,
       {method: 'GET'}
     )
-      .then(promise => promise.json());
+      .then(promise => promise.json())
+      .then(res => {
+        console.log(res);
+        return res;
+      })
+      .catch(err => console.error(err));
   }
 
 }

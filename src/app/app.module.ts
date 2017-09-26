@@ -5,6 +5,7 @@ import {
   MdToolbarModule,
   MdFormFieldModule, MdInputModule,
   MdListModule,
+  MdCardModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 
 import 'hammerjs';
 import { MoviesContainerComponent } from './movies-container/movies-container.component';
+import { StarsComponent } from './stars/stars.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { MoviesContainerComponent } from './movies-container/movies-container.co
     HeaderComponent,
     MovieListItemComponent,
     MovieCardComponent,
-    MoviesContainerComponent
+    MoviesContainerComponent,
+    StarsComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import { MoviesContainerComponent } from './movies-container/movies-container.co
     MdFormFieldModule,
     MdInputModule,
     MdListModule,
+    MdCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

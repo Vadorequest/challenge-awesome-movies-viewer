@@ -1,7 +1,22 @@
-<h1>{{movie.title}}</h1>
-<div>
-  <img src="https://image.tmdb.org/t/p/w342{{currentPosterPath || movie.poster_path}}" />
-</div>
-<p>
-  {{movie.overview}}
-</p>
+<md-card>
+  <md-card-header>
+    <md-card-title>
+      {{movie.title}}
+    </md-card-title>
+    <md-card-subtitle>
+      {{movie.release_date}}
+    </md-card-subtitle>
+  </md-card-header>
+  <img
+    src="https://image.tmdb.org/t/p/w342{{currentPosterPath || movie.poster_path}}"
+    alt="Poster image for the movie {{movie.title}}"
+  />
+  <md-card-content>
+    <div title="{{movie.vote_average/2}}/5 - ({{movie.vote_count}} votes)">
+    <app-stars score="{{movie.vote_average/2}}"></app-stars>
+    </div>
+    <div>
+      {{movie.overview}}
+    </div>
+  </md-card-content>
+</md-card>
