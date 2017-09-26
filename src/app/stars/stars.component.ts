@@ -27,12 +27,8 @@ export class StarsComponent implements OnInit, OnChanges {
       this.stars.push('star_border');
     }
     for (let i = 1; i < (5 - full); i++) {
-      console.log('end')
       this.stars.push('star_border');
     }
-    console.log(full);
-    console.log(rest);
-    console.log(this.stars);
   }
 
 }
