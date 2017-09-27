@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { MovieService } from '../movie.service';
+import { IMovie } from '../movie.model';
 
 @Component({
   selector: 'app-movie-card',
@@ -8,7 +9,7 @@ import { MovieService } from '../movie.service';
   providers: [MovieService]
 })
 export class MovieCardComponent implements OnInit, OnChanges {
-  @Input() movie: any;
+  @Input() movie: IMovie;
   movieImages: Array<any>;
   currentPosterPath: String;
   currentPosterIndex = 0;
@@ -25,12 +26,12 @@ export class MovieCardComponent implements OnInit, OnChanges {
     // Once the images for the movie are fetched, we change the cover image every 2s.
       .then(() => {
         // XXX Delete previous created setInterval. Otherwise they stack and the carousel speed increases at every change.
-        if(this.carouselInterval){
+        if (this.carouselInterval) {
           clearInterval(this.carouselInterval);
         }
 
         this.carouselInterval = setInterval(() => {
-          if(++this.currentPosterIndex > this.movieImages.length - 1){
+          if (++this.currentPosterIndex > this.movieImages.length - 1) {
             this.currentPosterIndex = 0;
           }
           this.currentPosterPath = this.movieImages[this.currentPosterIndex].file_path;

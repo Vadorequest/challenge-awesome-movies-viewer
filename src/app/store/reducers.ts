@@ -1,7 +1,8 @@
 import { MovieActions, AnyValidAction } from './app.actions';
+import { IMovie } from '../movie.model';
 
 export interface IAppState {
-  selectedMovie: any;
+  selectedMovie: IMovie;
 }
 
 export const INITIAL_STATE: IAppState = {

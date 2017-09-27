@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import { NgRedux } from '@angular-redux/store';
 import { MovieActions } from '../store/app.actions';
 import { IAppState } from '../store/reducers';
+import { IMovie } from '../movie.model';
 
 @Component({
   selector: 'app-header',
@@ -38,13 +39,13 @@ export class HeaderComponent implements OnInit {
       });
   }
 
-  filter(searchedMovie: string): string[] {
+  filter(searchedMovie: string): IMovie[] {
     return this.movies.filter(movie =>
       movie.title.toLowerCase().indexOf(searchedMovie.toLowerCase()) === 0);
   }
 
   onSelect($event) {
-    const selectedMovie: any = this.filter($event.target.value)[0];
+    const selectedMovie: IMovie = this.filter($event.target.value)[0];
     this.ngRedux.dispatch(this.movieActions.changeSelectedMovie(selectedMovie));
   }
 
