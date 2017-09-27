@@ -57,9 +57,13 @@ export class HeaderComponent implements OnInit {
   }
 
   private changeSelectedMovie(movie: IMovie) {
-    this.ngRedux.dispatch(this.movieActions.changeSelectedMovie(movie));
-    this.textFilterControl.reset();
-    this.refreshFilteredMovies(); // Necessary to force refresh the list even after resetting the input.
+    if (movie.title) { // If the selected movie is invalid for any reason, don't update to avoid a white page.
+      this.ngRedux.dispatch(this.movieActions.changeSelectedMovie(movie));
+      this.textFilterControl.reset();
+      this.refreshFilteredMovies(); // Necessary to force refresh the list even after resetting the input.
+    } else {
+      console.log('Selected movie not found'); // This should be a UI alert.
+    }
   }
 
   private refreshFilteredMovies() {
