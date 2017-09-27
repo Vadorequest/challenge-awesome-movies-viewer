@@ -1,9 +1,9 @@
-<div *ngIf="movies">
+<div *ngIf="movies && (selectedMovie$ | async); let selectedMovie">
   <md-list>
     <h3 md-subheader>Most popular movies NOW!</h3>
     <md-list-item
       *ngFor="let movie of movies"
-      [class.selected]="movie === selectedMovie$"
+      [class.selected]="movie.id === selectedMovie.id"
       (click)="onSelect(movie)"
     >
       <img src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}" />
@@ -11,6 +11,6 @@
     </md-list-item>
   </md-list>
 
-  <app-movie-card [movie]="selectedMovie$"></app-movie-card>
+  <app-movie-card [movie]="selectedMovie"></app-movie-card>
 </div>
 

@@ -27,8 +27,7 @@ export class MoviesContainerComponent implements OnInit {
     this.getMovies()
       .then(movies =>
         this.ngRedux.dispatch(this.movieActions.changeSelectedMovie(this.movies[0]))
-      )
-      .then(() => console.log(this.selectedMovie$));
+      );
   }
 
   getMovies() {
