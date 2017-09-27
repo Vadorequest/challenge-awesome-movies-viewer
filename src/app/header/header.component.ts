@@ -4,6 +4,9 @@ import { FormControl } from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
+import { NgRedux } from '@angular-redux/store';
+import { MovieSelectedAction } from '../store/app.actions';
+import { IAppState } from '../store/reducers';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +20,11 @@ export class HeaderComponent implements OnInit {
   filteredMovies: Observable<any[]>;
   textFilterControl: FormControl;
 
-  constructor(private movieService: MovieService) {
+  constructor(
+    private ngRedux: NgRedux<IAppState>,
+    private movieSelectedAction: MovieSelectedAction,
+    private movieService: MovieService
+  ) {
     this.textFilterControl = new FormControl();
   }
 
@@ -37,8 +44,8 @@ export class HeaderComponent implements OnInit {
   }
 
   onSelect($event) {
-    let selectedMovie: any = this.filter($event.target.value);
-
+    const selectedMovie: any = this.filter($event.target.value)[0];
+    this.ngRedux.dispatch(this.movieSelectedAction.update(selectedMovie));
   }
 
 }
