@@ -33,9 +33,7 @@ export class HeaderComponent implements OnInit {
     this.movieService.getMostPopular()
       .then(data => this.movies = data.results)
       .then(() => {
-        this.filteredMovies = this.textFilterControl.valueChanges
-          .startWith(null)
-          .map(searchedMovie => searchedMovie ? this.filter(searchedMovie) : this.movies.slice());
+        this.refreshFilteredMovies();
       });
   }
 
@@ -44,9 +42,28 @@ export class HeaderComponent implements OnInit {
       movie.title.toLowerCase().indexOf(searchedMovie.toLowerCase()) === 0);
   }
 
-  onSelect($event) {
+  onKeyupEnter($event) {
+    console.log('onKeyupEnter')
     const selectedMovie: IMovie = this.filter($event.target.value)[0];
-    this.ngRedux.dispatch(this.movieActions.changeSelectedMovie(selectedMovie));
+    this.changeSelectedMovie(selectedMovie);
+  }
+
+  onSelectionChange($event) {
+    console.log('onSelectionChange', $event.source.value); // TODO Issue with MdAutocomplete onSelectionChange event, fired twice upon one change.
+    const selectedMovie: IMovie = this.filter($event.source.value)[0];
+    this.changeSelectedMovie(selectedMovie);
+  }
+
+  private changeSelectedMovie(movie: IMovie) {
+    this.ngRedux.dispatch(this.movieActions.changeSelectedMovie(movie));
+    this.textFilterControl.reset();
+    this.refreshFilteredMovies(); // Necessary to force refresh the list even after resetting the input.
+  }
+
+  private refreshFilteredMovies() {
+    this.filteredMovies = this.textFilterControl.valueChanges
+      .startWith(null)
+      .map(searchedMovie => searchedMovie ? this.filter(searchedMovie) : this.movies.slice());
   }
 
 }

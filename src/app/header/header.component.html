@@ -16,11 +16,15 @@
           placeholder="Search"
           [formControl]="textFilterControl"
           [mdAutocomplete]="auto"
-          (keyup.enter)="onSelect($event)"
+          (keyup.enter)="onKeyupEnter($event)"
         >
       </md-form-field>
       <md-autocomplete #auto="mdAutocomplete">
-         <md-option *ngFor="let movie of filteredMovies | async" [value]="movie.title">
+         <md-option
+           *ngFor="let movie of filteredMovies | async"
+           [value]="movie.title"
+           (onSelectionChange)="onSelectionChange($event)"
+         >
             {{ movie.title }}
          </md-option>
       </md-autocomplete>
