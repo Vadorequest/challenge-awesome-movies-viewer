@@ -45,6 +45,7 @@ No AOT. (slower, bigger)
 
 1. Clone it
 1. `npm i`
+1. `npm start`
 1. Go to http://localhost:4200/
 
 ---
