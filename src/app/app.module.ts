@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
 import { createLogger } from 'redux-logger';
 import { rootReducer, IAppState, INITIAL_STATE } from './store/reducers';
-import { MovieSelectedAction } from './store/app.actions';
+import { MovieActions } from './store/app.actions';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -45,7 +45,7 @@ import { StarsComponent } from './stars/stars.component';
     MdCardModule,
     MdAutocompleteModule,
   ],
-  providers: [MovieSelectedAction],
+  providers: [MovieActions],
   bootstrap: [AppComponent]
 })
 export class AppModule {

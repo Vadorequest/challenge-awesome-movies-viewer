@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class MovieSelectedAction {
-  static MOVIE_SELECTED = 'MOVIE_SELECTED';
+export class MovieActions {
+  static CHANGE_SELECTED_MOVIE = 'CHANGE_SELECTED_MOVIE';
 
-  update(payload: any): any {
+  changeSelectedMovie(payload: any): any {
     return {
-      type: MovieSelectedAction.MOVIE_SELECTED,
+      type: MovieActions.CHANGE_SELECTED_MOVIE,
       payload
     };
   }
