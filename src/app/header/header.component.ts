@@ -42,18 +42,12 @@ export class HeaderComponent implements OnInit {
       movie.title.toLowerCase().indexOf(searchedMovie.toLowerCase()) === 0);
   }
 
-  // XXX Mess up with the component, multiple events fired. Pressing enter automatically fires a "onSelectionChange" event.
-  // onKeyupEnter($event) {
-  //   $event.stopPropagation();
-  //   console.log('onKeyupEnter', $event.target.value);
-  //   const selectedMovie: IMovie = this.filter($event.target.value)[0];
-  //   this.changeSelectedMovie(selectedMovie);
-  // }
-
   onSelectionChange($event) {
-    console.log('onSelectionChange', $event.source.value); // TODO Issue with MdAutocomplete onSelectionChange event, fired twice upon one change.
-    const selectedMovie: IMovie = this.filter($event.source.value)[0];
-    this.changeSelectedMovie(selectedMovie);
+    // XXX multiple events are fired, we only want those the user actually triggers.
+    if ($event.isUserInput) {
+      const selectedMovie: IMovie = this.filter($event.source.value)[0];
+      this.changeSelectedMovie(selectedMovie);
+    }
   }
 
   private changeSelectedMovie(movie: IMovie) {
