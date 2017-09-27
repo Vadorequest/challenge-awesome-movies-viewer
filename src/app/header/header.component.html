@@ -7,7 +7,7 @@
   <span class="fill-remaining-space"></span>
 
   <span>
-    <form class="">
+    <form>
       <i class="material-icons">search</i>
       <md-form-field>
         <input
@@ -16,7 +16,6 @@
           placeholder="Search"
           [formControl]="textFilterControl"
           [mdAutocomplete]="auto"
-          (keyup.enter)="onKeyupEnter($event)"
         >
       </md-form-field>
       <md-autocomplete #auto="mdAutocomplete">
